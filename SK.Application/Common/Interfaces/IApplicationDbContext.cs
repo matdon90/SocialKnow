@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SK.Domain.Common;
 using SK.Domain.Entities;
 using System.Threading;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace SK.Application.Common.Interfaces
         DbSet<Discussion> Discussions { get; set; }
         DbSet<Post> Posts { get; set; }
         DbSet<Photo> Photos { get; set; }
+        DbSet<Tag> Tags { get; set; }
+        DbSet<TEntity> DbSet<TEntity>() where TEntity : AuditableEntity;
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }
